@@ -1,0 +1,98 @@
+version: "3.6"
+services:
+  account:
+    image: "node:16.15.0-alpine"
+    container_name: ${PROJECT}_account
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${DOCKER_PORT}
+    command: sh -c "yarn install && yarn start"
+    ports:
+      - ${ACCOUNT_PORT}:${DOCKER_PORT}
+    volumes:
+      - "./account:/home/node/app"
+
+  blog:
+    image: "node:16.15.0-alpine"
+    container_name: ${PROJECT}_blog
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${DOCKER_PORT}
+    command: sh -c "yarn install && yarn start"
+    ports:
+      - ${BLOG_PORT}:${DOCKER_PORT}
+    volumes:
+      - "./blog:/home/node/app"
+
+  checkout:
+    image: "node:16.15.0-alpine"
+    container_name: ${PROJECT}_checkout
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${DOCKER_PORT}
+    command: sh -c "yarn install && yarn start"
+    ports:
+      - ${CHECKOUT_PORT}:${DOCKER_PORT}
+    volumes:
+      - "./checkout:/home/node/app"
+
+  product:
+    image: "node:16.15.0-alpine"
+    container_name: ${PROJECT}_product
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${DOCKER_PORT}
+    command: sh -c "yarn install && yarn start"
+    ports:
+      - ${PRODUCT_PORT}:${DOCKER_PORT}
+    volumes:
+      - "./product:/home/node/app"
+
+  shared:
+    image: "node:16.15.0-alpine"
+    container_name: ${PROJECT}_shared
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${DOCKER_PORT}
+    command: sh -c "yarn install && yarn start"
+    ports:
+      - ${SHARED_PORT}:${DOCKER_PORT}
+    volumes:
+      - "./shared:/home/node/app"
+
+  main:
+    image: "node:16.15.0-alpine"
+    container_name: ${PROJECT}_main
+    depends_on:
+      - account
+      - blog
+      - checkout
+      - product
+      - shared
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: ${ENVIRONMENT}
+      PORT: ${DOCKER_PORT}
+      REACT_APP_ACCOUNT_PORT: ${ACCOUNT_PORT}
+      REACT_APP_BLOG_PORT: ${BLOG_PORT}
+      REACT_APP_CHECKOUT_PORT: ${CHECKOUT_PORT}
+      REACT_APP_PRODUCT_PORT: ${PRODUCT_PORT}
+      REACT_APP_SHARED_PORT: ${SHARED_PORT}
+      REACT_APP_CHAT_PORT: ${CHAT_PORT}
+      LOGTO_KEY: ${LOGTO_KEY}
+    command: sh -c "yarn install && yarn start"
+    ports:
+      - ${MAIN_PORT}:${DOCKER_PORT}
+    volumes:
+      - "./main:/home/node/app"
