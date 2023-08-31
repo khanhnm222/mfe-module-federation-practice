@@ -1,0 +1,26 @@
+@keyframes scrollText {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.notification-banner {
+  height: 30px;
+  width: 100%;
+  background-color: #833030;
+  color: white;
+  padding: 0 10px;
+}
+
+.notification-banner .content {
+  animation: scrollText 10s infinite linear;
+}
+
+.notification-banner .content .remove-icon {
+  margin-left: 10px;
+  padding: 3px;
+}
