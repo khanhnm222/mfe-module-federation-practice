@@ -2,7 +2,7 @@
 Below is a summary of the practices in the MFE. Because of the server code cannot run on my laptop, I will have a practice session focusing on client-side data simulation.
 
 # The structure of Notification micro app
-![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/e991dc16-5dae-402f-a39b-34157c7cec58)
+![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/46d18203-5e74-4a03-9bc1-07e739f0f449)
 
 # This is the NotificationButton component of the Notification app used to trigger get notification messages from server, and is also exposed to the outside for use by the Shell app.
 ![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/1dbe329e-fc1f-4c7a-b51b-befd879b2f1c)
