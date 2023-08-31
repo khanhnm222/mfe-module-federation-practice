@@ -16,6 +16,8 @@
     &__right {
       text-align: right;
       padding: 10px 0 13px;
+      display: flex;
+      justify-content: flex-end;
 
       &__social {
         position: relative;
