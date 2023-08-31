@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { mountRemoteComponent } from '@/utils/loadComponent';
@@ -6,11 +6,22 @@ import globalStorage from '@/utils/loadStorage';
 import SignIn from '@/components/SignIn';
 import styles from './Header.module.scss';
 import Nav from './Nav';
+import customPostMessage from '@/utils/custom-post-message';
 
 const Header = () => {
   const user = globalStorage.getToken();
   const navigate = useNavigate();
   const token = globalStorage.getToken();
+  const notificationContentRef = useRef('');
+
+  useEffect(() => {
+    customPostMessage.on('trigger-notification', (data: any) => {
+      console.log('notificationContent', notificationContentRef.current);
+      notificationContentRef.current = data.message;
+    });
+
+    return customPostMessage.remove('trigger-notification', () => { return; })
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -43,8 +54,19 @@ const Header = () => {
                   </ul>
                 </div>
                 <SignIn />
+                <div style={{width: '35px'}}>
+                  {mountRemoteComponent({ module: 'notification', component: 'NotificationButton', props: {
+                    eventBus: customPostMessage
+                  }})}
+                </div>
               </div>
             </div>
+          </div>
+          <div className="row">
+            {mountRemoteComponent({ module: 'notification', component: 'NotificationBanner', props: {
+              content: notificationContentRef.current,
+              onClear: () => { notificationContentRef.current = '' }
+            }})}
           </div>
         </div>
       </div>
