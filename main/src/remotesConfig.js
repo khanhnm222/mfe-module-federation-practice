@@ -23,6 +23,10 @@ const remotes = {
     url: `http://localhost:${process.env.REACT_APP_CHAT_PORT || 3006}/remoteEntry.js`,
     scope: 'chat'
   },
+  notification: {
+    url: `http://localhost:${process.env.REACT_APP_CHAT_PORT || 3007}/remoteEntry.js`,
+    scope: 'notification'
+  },
 };
 
 module.exports = { remotes };
