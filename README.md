@@ -28,13 +28,15 @@ Below is a summary of the practices in the MFE. Because of BE code cannot run on
 
 
 
-# When the message snippet is added to the sample project
+# When the notification fragment is added to the header of Shell app
+The bell icon is a fragment from Notification app
 
 ![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/20b78401-369d-49bc-a62d-834cca26618b)
 
 
 
 # When the notification application's server is down
+The Notifications app's server has stopped or crashed, the main app is still active and the Notification bell display will be framed blank 
 
 ![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/17a22803-c6df-48b9-91a9-45ad059686f2)
 
