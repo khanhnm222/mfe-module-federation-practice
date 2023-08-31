@@ -1,5 +1,5 @@
 # mfe-module-federation-practice
-Below is a summary of the practices in the MFE. Because of the server code cannot run on my laptop, I will have a practice session focusing on client-side data simulation.
+Below is a summary of the practices in the MFE. Because of BE code cannot run on my laptop, I will have a practice session focusing on client-side data simulation.
 
 # The structure of Notification micro app
 
