@@ -28,6 +28,9 @@ This is a configuration of exposing fragments to other apps can use
 ![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/70c5ad3c-5a88-49e4-ae15-cdf3872993b2)
 * Shell app config of Module Federation:
 ![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/27a5118c-ee1e-4545-a038-dd14834eb87e)
+* Shell app config of remoteConfig.js module:
+![image](https://github.com/khanhnm222/mfe-module-federation-practice/assets/87562013/c4550b91-71aa-4c4f-9b6a-417bd3d9e317)
+
 
 
 
